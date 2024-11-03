@@ -56,3 +56,8 @@ class Head {
     }
 }
 
+
+const stylesPath = "styles/main.css";
+const titleName = "Lymb"
+
+export const HeadBlock = new Head(stylesPath, titleName)
