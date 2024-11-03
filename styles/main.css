@@ -1,0 +1,188 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* ###################################
+###################################
+###################################
+###################################
+###################################
+###################################
+###################################
+###################################
+###################################
+################################### 
+*/
+:root {
+	--logo-width: 30px;
+	--logo-height: auto;
+	--main-icons-color: #5f6368;
+	--logo-margin: 5px;
+	--main-icons-margin: 10px;
+	--main-icons-width: 30px;
+	--main-icons-height: 30px; 
+	--body-color: #282c34;
+	--sidebar-color: #21252b;
+	--text-color: #585b63;
+	--active-text-color: #9aa1ac;
+	--sidebar-open-width: 5vw;
+	--sidebar-close-width: 30px;
+	--base-font: 1.2rem "Fira Sans", sans-serif;
+	--container-background-color: #21252b;
+	--footer-background-color: #4a4a50;
+	--border-separator-color: #4a4a4f;
+	--hover-main-icons: #9aa1ac;
+}
+
+
+
+body {
+	box-sizing: border-box;
+	background-color: var(--body-color);
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100vh;
+	padding-top: 30px;
+}
+
+.titlebar {
+	-webkit-app-region: drag;
+	position: fixed; /* Закрепляет элемент сверху */
+	top: 0; /* Располагает его вверху */
+	left: 0; /* Выравнивание по левому краю */
+	right: 0; /* Занимает всю ширину */
+	height: 30px; /* Высота заголовка */
+	font-size: small;
+	justify-content: center;
+	background-color: var(--sidebar-color); /* Цвет фона заголовка */
+	color: var(--active-text-color); /* Цвет текста */
+	margin: 0px 5px 5px 5px;
+	display: flex;
+	align-items: center; /* Вертикальное выравнивание текста */
+	padding: 0 10px; /* Отступы внутри заголовка */
+	z-index: 1000; /* Устанавливает уровень слоя, чтобы он был сверху */
+	border-radius: 10px;
+}
+
+/* This is styles for main window */
+main {
+	background-color: var(--footer-background-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	width: 96%;
+	height: 99%;
+	margin: 0px 5px 5px 5px;
+	border-radius: 10px;
+}
+.empty_winodw_message {
+	font:bolder;
+	font-size: large;
+	color: var(--active-text-color);
+
+}
+
+/* this is styles for aside */
+aside {
+	background-color: var(--sidebar-color);
+	display: flex;
+	flex-direction: column;
+	width: 3%;
+	height: 99%;
+	margin: 0px 5px 5px 5px;
+	border-radius: 10px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+.logo {
+	height: var(--logo-height);
+	width: var(--logo-width);
+	margin: var(--logo-margin);
+}
+.logo:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5)) /* Красный цвет тени */
+  drop-shadow(0 0 5px rgba(0, 255, 0, 0.5)) /* Зеленый цвет тени */
+  drop-shadow(0 0 5px rgba(0, 0, 255, 0.5)); /* Синий цвет тени */
+}
+.main_icons {
+	width: var(--main-icons-width);
+	height: var(--main-icons-height);
+	margin: var(--main-icons-margin);
+	fill: var(--main-icons-color)
+}
+.main_icons:hover {
+	fill: var(--hover-main-icons);
+}
+.sidemenu_head {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--border-separator-color) ;
+}
+.sidemenu_main {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid var(--border-separator-color) ;
+	padding-top: 20px;
+	flex-grow: 1;
+}
+.sidemenu_down {
+	display: flex;
+	justify-content: center;
+	margin-top: auto;
+}
