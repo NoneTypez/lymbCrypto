@@ -1,63 +1,66 @@
 class Head {
-    constructor(stylesPath, titleName) {
-        this.stylesPath = stylesPath;
-        this.title = titleName;
-        const HEAD = this.createHeadBlock()
-        try {
-            this.init()
-        } catch (error) {
-            console.error(`Ошибка инициализации блока HEAD: ${error}`)
-        }
-    }
+	constructor(stylesPath, titleName) {
+		this.stylesPath = stylesPath;
+		this.title = titleName;
+		this.HEAD = this.createHeadBlock(); // Создаем и сохраняем <head> элемент
 
-    createHeadBlock() {
-        // create a Head element
-        const headElement = document.createElement('head');
-        return headElement;
-    };
+		try {
+			this.init();
+		} catch (error) {
+			console.error(`Ошибка инициализации блока HEAD: ${error}`);
+		}
+	}
 
-    createMetaCharset() {
-        //create a Meta object
-        const metaCharset = document.createElement('meta');
-        metaCharset.setAttribute('charset', 'UTF-8');
-        this.HEAD.appendChild(metaCharset);
-    };
+	createHeadBlock() {
+		// Создаем элемент <head>
+		const headElement = document.createElement("head");
+		return headElement;
+	}
 
-    createMetaViewport() {
-        // create a Meta object for viewport
-        const metaViewport = document.createElement('meta');
-        metaViewport.name = 'viewport';
-        metaViewport.content = 'width=device-width, initial-scale=1.0';
-        this.HEAD.appendChild(metaViewport);
-    };
+	createMetaCharset() {
+		// Создаем meta элемент для charset
+		const metaCharset = document.createElement("meta");
+		metaCharset.setAttribute("charset", "UTF-8");
+		this.HEAD.appendChild(metaCharset);
+	}
 
-    createTitle() {
-        // create a title element
-        const titleElement = document.createElement('title');
-        titleElement.textContent = this.title;
-        this.HEAD.appendChild(titleElement);
-    };
+	createMetaViewport() {
+		// Создаем meta элемент для viewport
+		const metaViewport = document.createElement("meta");
+		metaViewport.name = "viewport";
+		metaViewport.content = "width=device-width, initial-scale=1.0";
+		this.HEAD.appendChild(metaViewport);
+	}
 
-    createStylesLink() {
-        // create a link element
-        const linkElement = document.createElement('link');
-        linkElement.rel = 'stylesheet';
-        linkElement.href = this.stylesPath;
-        this.HEAD.appendChild(linkElement);
-    }
+	createTitle() {
+		// Создаем элемент <title>
+		const titleElement = document.createElement("title");
+		titleElement.textContent = this.title;
+		this.HEAD.appendChild(titleElement);
+	}
 
-    init() {
-        // add all elements to head container
-        this.createMetaCharset();
-        this.createMetaViewport();
-        this.createTitle();
-        this.createStylesLink();
-        document.documentElement.prepend(this.HEAD);
-    }
+	createStylesLink() {
+		// Создаем link элемент для стилей
+		const linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		linkElement.href = this.stylesPath;
+		this.HEAD.appendChild(linkElement);
+	}
+
+	init() {
+		// Добавляем все элементы в контейнер head
+		this.createMetaCharset();
+		this.createMetaViewport();
+		this.createTitle();
+		this.createStylesLink();
+
+		// Добавляем созданный элемент head в документ
+		document.head.replaceWith(this.HEAD);
+	}
 }
 
-
+// Использование:
 const stylesPath = "styles/main.css";
-const titleName = "Lymb"
+const titleName = "Lymb";
 
-export const HeadBlock = new Head(stylesPath, titleName)
+export const HeadBlock = new Head(stylesPath, titleName);
