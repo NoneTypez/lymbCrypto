@@ -1,14 +1,12 @@
+import { mainValues } from "./models";
+
 class Head {
 	constructor(stylesPath, titleName) {
 		this.stylesPath = stylesPath;
 		this.title = titleName;
 		this.HEAD = this.createHeadBlock(); // Создаем и сохраняем <head> элемент
 
-		try {
-			this.init();
-		} catch (error) {
-			console.error(`Ошибка инициализации блока HEAD: ${error}`);
-		}
+		this.init();
 	}
 
 	createHeadBlock() {
@@ -48,19 +46,16 @@ class Head {
 	}
 
 	init() {
-		// Добавляем все элементы в контейнер head
-		this.createMetaCharset();
-		this.createMetaViewport();
-		this.createTitle();
-		this.createStylesLink();
-
-		// Добавляем созданный элемент head в документ
-		document.head.replaceWith(this.HEAD);
+		try {
+			this.createMetaCharset();
+			this.createMetaViewport();
+			this.createTitle();
+			this.createStylesLink();
+			document.head.replaceWith(this.HEAD);
+		} catch (error) {
+			console.error(`Ошибка инициализации блока HEAD: ${error}`);
+		}
 	}
 }
 
-// Использование:
-const stylesPath = "styles/main.css";
-const titleName = "Lymb";
-
-export const HeadBlock = new Head(stylesPath, titleName);
+export const HeadBlock = new Head(mainValues.stylesPath, mainValues.titleName);

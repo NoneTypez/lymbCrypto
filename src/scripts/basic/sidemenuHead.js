@@ -1,4 +1,4 @@
-import { sideBarIcons } from "./iconsModel";
+import { sideBarIcons } from "./models";
 import { createIcon } from "../utils";
 
 class SideMenuHead {
@@ -7,11 +7,7 @@ class SideMenuHead {
 		this.div = this.createDivBlock();
 		this.logo = sideBarIcons.sidemenu_head.logo;
 		this.dashboardBtn = this.createDashboardButton();
-		try {
-			this.init();
-		} catch (error) {
-			console.log(`Ошибка инициализации блока sidemenuHead: ${error}`);
-		}
+		this.init();
 	}
 
 	createDivBlock() {
@@ -65,7 +61,10 @@ class SideMenuHead {
 	}
 
 	init() {
-		// Добавляем созданный div элемент в asideBlock
-		this.asideBlock.appendChild(this.div);
+		try {
+			this.asideBlock.appendChild(this.div);
+		} catch (error) {
+			console.log(`Ошибка инициализации блока sidemenuHead: ${error}`);
+		}
 	}
 }

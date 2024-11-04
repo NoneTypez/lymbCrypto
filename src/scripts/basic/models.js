@@ -1,3 +1,8 @@
+export const mainValues = {
+	stylesPath: "styles/main.css",
+	titleName: "LymbCrypto",
+};
+
 export const sideBarIcons = {
 	iconsSize: "24px",
 
