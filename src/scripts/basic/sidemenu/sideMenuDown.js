@@ -6,27 +6,27 @@ class sideMenuDown {
 		this.settingsBtn = this.createSettingsBtn();
 		this.logBtn = this.createLogBtn();
 		this.infoBtn = this.createInfoBtn();
-		this.list = this.createList();
 		this.buttons = [this.settingsBtn, this.logBtn, this.infoBtn];
+		this.list = this.createList();
 		this.block = this.createDivBlock();
 	}
 
 	createLogBtn() {
-		const logBtn = createIcon(sideBarIcons.sidemenuDown.logIcon, "Log");
+		const logBtn = createIcon(sideBarIcons.sidemenuDown.logIcon);
 		logBtn.classList.add("log_btn");
 		return logBtn;
 	}
 
 	createInfoBtn() {
-		const infoBtn = createIcon(sideBarIcons.sidemenuDown.infoIcon, "Info");
+		const infoBtn = createIcon(sideBarIcons.sidemenuDown.infoIcon);
 		infoBtn.classList.add("info_btn");
 
 		return infoBtn;
 	}
 
 	createSettingsBtn() {
-		const settingsBtn = createIcon(sideBarIcons.sidemenuDown.settingsBtn, "Settings");
-		dashboardBtn.classList.add("settings_btn");
+		const settingsBtn = createIcon(sideBarIcons.sidemenuDown.settingsIcon);
+		settingsBtn.classList.add("settings_btn");
 
 		return settingsBtn;
 	}
@@ -48,8 +48,8 @@ class sideMenuDown {
 		const div = document.createElement("div");
 		div.classList.add("sidemenu_down");
 
-		// add list to <div> element
-		div.appendChild(this.createList());
+		// add the already created list to <div> element
+		div.appendChild(this.list);
 
 		return div;
 	}

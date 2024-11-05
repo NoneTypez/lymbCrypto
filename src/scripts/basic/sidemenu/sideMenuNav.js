@@ -36,25 +36,25 @@ class SideMenuNav {
 	}
 
 	createExchangeBtn() {
-		const exchangeBtn = createIcon(sideBarIcons.sideMenuMain.exchangeIcon, "Exchange");
+		const exchangeBtn = createIcon(sideBarIcons.sideMenuMain.exchangeIcon);
 		exchangeBtn.classList.add("exchange_btn");
 		return exchangeBtn;
 	}
 
 	createProjectsBtn() {
-		const projectsBtn = createIcon(sideBarIcons.sideMenuMain.projectsIcon, "Projects");
+		const projectsBtn = createIcon(sideBarIcons.sideMenuMain.projectsIcon);
 		projectsBtn.classList.add("projects_btn");
 		return projectsBtn;
 	}
 
 	createScriptsBtn() {
-		const scriptsBtn = createIcon(sideBarIcons.sideMenuMain.scriptsIcon, "Scripts");
+		const scriptsBtn = createIcon(sideBarIcons.sideMenuMain.scriptsIcon);
 		scriptsBtn.classList.add("scripts_btn");
 		return scriptsBtn;
 	}
 
 	createTableBtn() {
-		const tableBtn = createIcon(sideBarIcons.sideMenuMain.tableIcon, "Table");
+		const tableBtn = createIcon(sideBarIcons.sideMenuMain.tableIcon);
 		tableBtn.classList.add("table_btn");
 		return tableBtn;
 	}
