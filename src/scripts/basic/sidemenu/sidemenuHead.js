@@ -1,13 +1,11 @@
-import { sideBarIcons } from "../models";
-import { createIcon } from "../../utils";
+import { sideBarIcons } from "../models.js";
+import { createIcon } from "../../utils.js";
 
-export class SideMenuHead {
-	constructor(asideBlock) {
-		this.asideBlock = asideBlock;
-		this.div = this.createDivBlock();
-		this.logo = sideBarIcons.sidemenu_head.logo;
+class SideMenuHead {
+	constructor() {
+		this.logo = sideBarIcons.sidemenuHead.logo;
 		this.dashboardBtn = this.createDashboardButton();
-		this.init();
+		this.block = this.createDivBlock();
 	}
 
 	createDivBlock() {
@@ -59,12 +57,6 @@ export class SideMenuHead {
 		dashboardBtn.classList.add("dashboard_btn");
 		return dashboardBtn;
 	}
-
-	init() {
-		try {
-			this.asideBlock.appendChild(this.div);
-		} catch (error) {
-			console.log(`Ошибка инициализации блока sidemenuHead: ${error}`);
-		}
-	}
 }
+
+export const sideHeadBlock = new SideMenuHead();

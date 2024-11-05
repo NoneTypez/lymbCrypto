@@ -1,16 +1,14 @@
-import { createIcon } from "../../utils";
-import { sideBarIcons } from "../models";
+import { createIcon } from "../../utils.js";
+import { sideBarIcons } from "../models.js";
 
-export class sideMenuDown {
-	constructor(asideBlock) {
-		this.asideBlock = asideBlock;
+class sideMenuDown {
+	constructor() {
 		this.settingsBtn = this.createSettingsBtn();
 		this.logBtn = this.createLogBtn();
 		this.infoBtn = this.createInfoBtn();
 		this.list = this.createList();
 		this.buttons = [this.settingsBtn, this.logBtn, this.infoBtn];
-		this.div = this.createDivBlock();
-		this.init();
+		this.block = this.createDivBlock();
 	}
 
 	createLogBtn() {
@@ -55,12 +53,6 @@ export class sideMenuDown {
 
 		return div;
 	}
-
-	init() {
-		try {
-			this.asideBlock.appendChild(this.div);
-		} catch (error) {
-			console.log(`Ошибка инициализации блока sidemenuDown: ${error}`);
-		}
-	}
 }
+
+export const sideDownBlock = new sideMenuDown();

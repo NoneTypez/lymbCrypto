@@ -1,4 +1,4 @@
-import { sideBarIcons } from "./basic/models";
+import { sideBarIcons } from "./basic/models.js";
 
 export function createIcon(iconPath, altText, svgPathData) {
 	const anchor = document.createElement("a");

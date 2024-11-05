@@ -1,23 +1,34 @@
-import { SidemenuHead } from "./sidemenuHead";
-import { SideMenuNav } from "./sideMenuNav";
-import { SideMenuDown } from "./sideMenuDown";
+import { sideHeadBlock } from "./sidemenuHead.js";
+import { sideNavBlock } from "./sideMenuNav.js";
+import { sideDownBlock } from "./sideMenuDown.js";
 
 class sideMenuMain {
-	constructor(bodyBlock, sideHead, sideNav, sideDown) {
-		this.blocks = [SidemenuHead, SideMenuNav, SideMenuDown];
+	constructor() {
+		this.titlebar = this.createTitleBar();
+		this.blocks = [this.titlebar, sideHeadBlock, sideNavBlock, sideDownBlock];
 		this.aside = this.createAsideBlock();
 	}
 
 	createTitleBar() {
 		const titleBar = document.createElement("div");
-		titleBar.id.add("titlebar");
+		titleBar.id = "titlebar";
 		titleBar.classList.add("titlebar");
-		titleBar.innerText("Lymb");
+		titleBar.innerText = "Lymb";
+
+		return titleBar;
 	}
 	createAsideBlock() {
 		const aside = document.createElement("aside");
 		aside.classList.add("container", "sidemenu");
+
+		return aside;
 	}
 
-	init() {}
+	init() {
+		for (let block of this.blocks) {
+			this.aside.appendChild(block);
+		}
+	}
 }
+
+export const sidebarMainBlock = new sideMenuMain();

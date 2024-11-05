@@ -1,12 +1,10 @@
-import { mainValues } from "./models";
+import { mainValues } from "./models.js";
 
 class Head {
 	constructor(stylesPath, titleName) {
 		this.stylesPath = stylesPath;
 		this.title = titleName;
 		this.HEAD = this.createHeadBlock(); // Создаем и сохраняем <head> элемент
-
-		this.init();
 	}
 
 	createHeadBlock() {

@@ -1,5 +1,3 @@
-const buttons = [this.exchangeBtn, this.projectsBtn, this.scriptsBtn, this.tableBtn];
+const a = null;
 
-for (let btn of buttons) {
-	console.log(btn);
-}
+console.log(Boolean(a));

@@ -1,15 +1,15 @@
-import { sideBarIcons } from "../models";
-import { createIcon } from "../../utils";
+import { sideBarIcons } from "../models.js";
+import { createIcon } from "../../utils.js";
 
-export class SideMenuMain {
-	constructor(asideBlock) {
-		this.asideBlock = asideBlock;
+class SideMenuNav {
+	constructor() {
 		this.exchangeBtn = this.createExchangeBtn();
 		this.projectsBtn = this.createProjectsBtn();
 		this.scriptsBtn = this.createScriptsBtn();
 		this.tableBtn = this.createTableBtn();
-		this.navElement = this.createNav();
 		this.buttons = [this.exchangeBtn, this.projectsBtn, this.scriptsBtn, this.tableBtn];
+
+		this.block = this.createNav();
 	}
 
 	createNav() {
@@ -58,12 +58,6 @@ export class SideMenuMain {
 		tableBtn.classList.add("table_btn");
 		return tableBtn;
 	}
-
-	init() {
-		try {
-			this.asideBlock.appendChild(this.navElement);
-		} catch (error) {
-			console.log(`Ошибка инициализации блока <nav>: ${error}`);
-		}
-	}
 }
+
+export const sideNavBlock = new SideMenuNav();
