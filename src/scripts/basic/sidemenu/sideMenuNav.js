@@ -1,9 +1,9 @@
-import { sideBarIcons } from "./models";
-import { createIcon } from "../utils";
+import { sideBarIcons } from "../models";
+import { createIcon } from "../../utils";
 
-class SideMenuMain {
-	constructor(asideElement) {
-		this.asideElement = asideElement;
+export class SideMenuMain {
+	constructor(asideBlock) {
+		this.asideBlock = asideBlock;
 		this.exchangeBtn = this.createExchangeBtn();
 		this.projectsBtn = this.createProjectsBtn();
 		this.scriptsBtn = this.createScriptsBtn();
@@ -61,7 +61,7 @@ class SideMenuMain {
 
 	init() {
 		try {
-			this.asideElement.appendChild(this.navElement);
+			this.asideBlock.appendChild(this.navElement);
 		} catch (error) {
 			console.log(`Ошибка инициализации блока <nav>: ${error}`);
 		}

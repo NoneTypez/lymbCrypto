@@ -1,7 +1,7 @@
-import { sideBarIcons } from "./models";
-import { createIcon } from "../utils";
+import { sideBarIcons } from "../models";
+import { createIcon } from "../../utils";
 
-class SideMenuHead {
+export class SideMenuHead {
 	constructor(asideBlock) {
 		this.asideBlock = asideBlock;
 		this.div = this.createDivBlock();
