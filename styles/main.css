@@ -140,7 +140,7 @@ aside {
 	background-color: var(--sidebar-color);
 	display: flex;
 	flex-direction: column;
-	width: 3%;
+	width: 50px;
 	height: 99%;
 	margin: 0px 5px 5px 5px;
 	border-radius: 10px;

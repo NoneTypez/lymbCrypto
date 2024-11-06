@@ -1,5 +1,6 @@
 import { sideBarIcons } from "../models.js";
 import { createIcon } from "../../utils.js";
+import { buttons } from "../models.js";
 
 class SideMenuNav {
 	constructor() {
@@ -8,7 +9,7 @@ class SideMenuNav {
 		this.scriptsBtn = this.createScriptsBtn();
 		this.tableBtn = this.createTableBtn();
 		this.buttons = [this.exchangeBtn, this.projectsBtn, this.scriptsBtn, this.tableBtn];
-
+		this.dropButtons = buttons.sideMenu;
 		this.block = this.createNav();
 	}
 
