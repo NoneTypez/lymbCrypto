@@ -1,64 +1,32 @@
-import { sideBarIcons } from "../models.js";
-import { createIcon } from "../../utils.js";
 import { buttons } from "../models.js";
 
 class SideMenuNav {
 	constructor() {
-		this.exchangeBtn = this.createExchangeBtn();
-		this.projectsBtn = this.createProjectsBtn();
-		this.scriptsBtn = this.createScriptsBtn();
-		this.tableBtn = this.createTableBtn();
-		this.buttons = [this.exchangeBtn, this.projectsBtn, this.scriptsBtn, this.tableBtn];
-		this.dropButtons = buttons.sideMenu;
-		this.block = this.createNav();
+		this.buttons = Object.keys(buttons.sideMenu.centerBlock);
+		this.dropButtons = buttons.sideMenu.subMenu;
+		// this.init();
 	}
 
-	createNav() {
-		// create a <nav> element
+	createUlWithMainButtons() {
+		const ul = document.createElement("ul");
 
-		const navElement = document.createElement("nav");
-		navElement.classList.add("sidemenu_main");
-		navElement.appendChild(this.createListWithButtons());
-		return navElement;
+		this.buttons.forEach((buttonKey) => {
+			const element = buttons.sideMenu.centerBlock[buttonKey];
+			ul.appendChild(element);
+		});
+
+		return ul;
 	}
 
-	createListWithButtons() {
-		// Создаем <ul> элемент
-		const uList = document.createElement("ul");
+	init() {
+		const block = document.createElement("nav");
+		block.classList.add("sidemenu_main");
 
-		// Оборачиваем Btn в <li> и добавляем в список
-		for (let btn of this.buttons) {
-			let li = document.createElement("li");
-			li.appendChild(btn);
-			uList.appendChild(li);
-		}
+		const ul = this.createUlWithMainButtons();
+		block.appendChild(ul);
 
-		return uList;
-	}
-
-	createExchangeBtn() {
-		const exchangeBtn = createIcon(sideBarIcons.sideMenuMain.exchangeIcon);
-		exchangeBtn.classList.add("exchange_btn");
-		return exchangeBtn;
-	}
-
-	createProjectsBtn() {
-		const projectsBtn = createIcon(sideBarIcons.sideMenuMain.projectsIcon);
-		projectsBtn.classList.add("projects_btn");
-		return projectsBtn;
-	}
-
-	createScriptsBtn() {
-		const scriptsBtn = createIcon(sideBarIcons.sideMenuMain.scriptsIcon);
-		scriptsBtn.classList.add("scripts_btn");
-		return scriptsBtn;
-	}
-
-	createTableBtn() {
-		const tableBtn = createIcon(sideBarIcons.sideMenuMain.tableIcon);
-		tableBtn.classList.add("table_btn");
-		return tableBtn;
+		return block;
 	}
 }
 
-export const sideNavBlock = new SideMenuNav();
+export const centerBlock = new SideMenuNav().init();

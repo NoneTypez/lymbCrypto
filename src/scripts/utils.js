@@ -2,7 +2,6 @@ import { sideBarIcons } from "./basic/models.js";
 
 export function createMainButton(
 	svgPathData,
-	size = sideBarIcons.iconsSize,
 	fill = "#5f6368",
 	buttonClassName = null,
 	subMenuUlClassName = null
@@ -17,8 +16,8 @@ export function createMainButton(
 	const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svgIcon.setAttribute("class", "main_icons");
 	svgIcon.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-	svgIcon.setAttribute("height", size);
-	svgIcon.setAttribute("width", size);
+	svgIcon.setAttribute("height", sideBarIcons.iconsSize);
+	svgIcon.setAttribute("width", sideBarIcons.iconsSize);
 	svgIcon.setAttribute("viewBox", "0 -960 960 960");
 	svgIcon.setAttribute("fill", fill); // Можно задать кастомный цвет для SVG
 
@@ -49,6 +48,23 @@ export function createSubButton(text, className) {
 	anchor.href = "#";
 	anchor.text = text;
 	anchor.classList.add(className);
+	li.appendChild(anchor);
+
+	return li;
+}
+
+export function createLogoItem(src) {
+	// Создаем элемент списка для логотипа
+	const li = document.createElement("li");
+	const anchor = document.createElement("a");
+	anchor.href = "#";
+
+	const img = document.createElement("img");
+	img.classList.add("logo");
+	img.src = src;
+	img.alt = "Logo";
+
+	anchor.appendChild(img);
 	li.appendChild(anchor);
 
 	return li;

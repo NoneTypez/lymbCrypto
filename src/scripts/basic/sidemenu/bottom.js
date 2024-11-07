@@ -1,58 +1,32 @@
-import { createIcon } from "../../utils.js";
-import { sideBarIcons } from "../models.js";
+import { buttons } from "../models.js";
 
 class sideMenuDown {
 	constructor() {
-		this.settingsBtn = this.createSettingsBtn();
-		this.logBtn = this.createLogBtn();
-		this.infoBtn = this.createInfoBtn();
-		this.buttons = [this.settingsBtn, this.logBtn, this.infoBtn];
-		this.list = this.createList();
-		this.block = this.createDivBlock();
+		this.buttons = Object.keys(buttons.sideMenu.bottomBlock);
+		this.dropButtons = buttons.sideMenu.subMenu;
+		// this.init();
 	}
 
-	createLogBtn() {
-		const logBtn = createIcon(sideBarIcons.sidemenuDown.logIcon);
-		logBtn.classList.add("log_btn");
-		return logBtn;
+	createUlWithMainButtons() {
+		const ul = document.createElement("ul");
+
+		this.buttons.forEach((buttonKey) => {
+			const element = buttons.sideMenu.bottomBlock[buttonKey];
+			ul.appendChild(element);
+		});
+
+		return ul;
 	}
 
-	createInfoBtn() {
-		const infoBtn = createIcon(sideBarIcons.sidemenuDown.infoIcon);
-		infoBtn.classList.add("info_btn");
+	init() {
+		const block = document.createElement("div");
+		block.classList.add("sidemenu_down");
 
-		return infoBtn;
-	}
+		const ul = this.createUlWithMainButtons();
+		block.appendChild(ul);
 
-	createSettingsBtn() {
-		const settingsBtn = createIcon(sideBarIcons.sidemenuDown.settingsIcon);
-		settingsBtn.classList.add("settings_btn");
-
-		return settingsBtn;
-	}
-
-	createList() {
-		const uList = document.createElement("ul");
-
-		for (let btn of this.buttons) {
-			let li = document.createElement("li");
-			li.appendChild(btn);
-			uList.appendChild(li);
-		}
-
-		return uList;
-	}
-
-	createDivBlock() {
-		// create an element <div> with class "sidemenu_down"
-		const div = document.createElement("div");
-		div.classList.add("sidemenu_down");
-
-		// add the already created list to <div> element
-		div.appendChild(this.list);
-
-		return div;
+		return block;
 	}
 }
 
-export const sideDownBlock = new sideMenuDown();
+export const bottomBlock = new sideMenuDown().init();

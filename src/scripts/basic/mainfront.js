@@ -1,8 +1,6 @@
 import { mainWindowBlock } from "./main_window/mainWindow.js";
-import { sidebarMainBlock } from "./sidemenu/sideMenuMain.js";
+import { sidebarInit } from "./sidemenu/sideMenu.js";
 import { HeadBlock } from "./head.js";
-
-const blocks = [mainWindowBlock, sidebarMainBlock, HeadBlock];
 
 function createTitleBar() {
 	const titleBar = document.createElement("div");
@@ -14,9 +12,11 @@ function createTitleBar() {
 }
 
 function init() {
-	createTitleBar();
-	for (let block of blocks) {
-		document.body.appendChild(block.block);
+	{
+		createTitleBar();
+		document.head.replaceWith(HeadBlock);
+		document.body.appendChild(sidebarInit());
+		document.body.appendChild(mainWindowBlock);
 	}
 }
 init();

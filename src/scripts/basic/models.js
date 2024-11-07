@@ -1,4 +1,4 @@
-import { createMainButton, createSubButton } from "../utils";
+import { createMainButton, createSubButton, createLogoItem } from "../utils.js";
 export const mainValues = {
 	stylesPath: "styles/main.css",
 	titleName: "LymbCrypto",
@@ -8,7 +8,7 @@ export const sideBarIcons = {
 	iconsSize: "24px",
 
 	top: {
-		logo: "./public/icons/main_logo.png",
+		logo: createLogoItem("./public/icons/main_logo.png"),
 		dashboardIcon:
 			"M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z",
 	},
@@ -36,12 +36,14 @@ export const sideBarIcons = {
 
 export const buttons = {
 	sideMenu: {
-		mainPanel: {
+		topBlock: {
 			dashboardBtn: createMainButton(
 				sideBarIcons.top.dashboardIcon,
 				"dashboardBtn",
 				"dashboardSubMenu"
 			),
+		},
+		centerBlock: {
 			exchangeBtn: createMainButton(
 				sideBarIcons.center.exchangeIcon,
 				"exchangeBtn",
@@ -58,6 +60,8 @@ export const buttons = {
 				"scriptsSubMenu"
 			),
 			tableBtn: createMainButton(sideBarIcons.center.tableIcon, "tableBtn", "tableSubMenu"),
+		},
+		bottomBlock: {
 			logBtn: createMainButton(sideBarIcons.bottom.logIcon, "logBtn"),
 			infoBtn: createMainButton(sideBarIcons.bottom.infoIcon, "infoBtn"),
 			settingsBtn: createMainButton(
@@ -82,9 +86,9 @@ export const buttons = {
 				script2: createSubButton("script2", "script2Btn"),
 				script3: createSubButton("scrip3", "script3Btn"),
 			},
-			table: ["open", "add"],
-			log: ["open", "add"],
-			settings: ["open", "add"],
+			// table: ["open", "add"],
+			// log: ["open", "add"],
+			// settings: ["open", "add"],
 		},
 	},
 };

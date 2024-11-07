@@ -4,21 +4,14 @@ class Head {
 	constructor(stylesPath, titleName) {
 		this.stylesPath = stylesPath;
 		this.title = titleName;
-		this.HEAD = this.createHeadBlock(); // Создаем и сохраняем <head> элемент
-		this.block = this.init();
-	}
-
-	createHeadBlock() {
-		// Создаем элемент <head>
-		const headElement = document.createElement("head");
-		return headElement;
+		this.block = document.createElement("head");
 	}
 
 	createMetaCharset() {
 		// Создаем meta элемент для charset
 		const metaCharset = document.createElement("meta");
 		metaCharset.setAttribute("charset", "UTF-8");
-		this.HEAD.appendChild(metaCharset);
+		this.block.appendChild(metaCharset);
 	}
 
 	createMetaViewport() {
@@ -26,14 +19,14 @@ class Head {
 		const metaViewport = document.createElement("meta");
 		metaViewport.name = "viewport";
 		metaViewport.content = "width=device-width, initial-scale=1.0";
-		this.HEAD.appendChild(metaViewport);
+		this.block.appendChild(metaViewport);
 	}
 
 	createTitle() {
 		// Создаем элемент <title>
 		const titleElement = document.createElement("title");
 		titleElement.textContent = this.title;
-		this.HEAD.appendChild(titleElement);
+		this.block.appendChild(titleElement);
 	}
 
 	createStylesLink() {
@@ -41,7 +34,7 @@ class Head {
 		const linkElement = document.createElement("link");
 		linkElement.rel = "stylesheet";
 		linkElement.href = this.stylesPath;
-		this.HEAD.appendChild(linkElement);
+		this.block.appendChild(linkElement);
 	}
 
 	init() {
@@ -50,12 +43,12 @@ class Head {
 			this.createMetaViewport();
 			this.createTitle();
 			this.createStylesLink();
-			document.head.replaceWith(this.HEAD);
-			return this.HEAD;
+			// document.head.replaceWith(this.block);
+			return this.block;
 		} catch (error) {
 			console.error(`Ошибка инициализации блока HEAD: ${error}`);
 		}
 	}
 }
 
-export const HeadBlock = new Head(mainValues.stylesPath, mainValues.titleName);
+export const HeadBlock = new Head(mainValues.stylesPath, mainValues.titleName).init();

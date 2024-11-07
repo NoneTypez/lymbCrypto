@@ -25,10 +25,8 @@ class MainWindow {
 	}
 
 	init() {
-		if (this.body) {
-			this.body.appendChild(this.mainBlock);
-		}
+		return this.mainBlock;
 	}
 }
 
-export const mainWindowBlock = new MainWindow();
+export const mainWindowBlock = new MainWindow().init();
