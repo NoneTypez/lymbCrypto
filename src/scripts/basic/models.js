@@ -1,4 +1,4 @@
-import { createMainButton } from "../utils";
+import { createMainButton, createSubButton } from "../utils";
 export const mainValues = {
 	stylesPath: "styles/main.css",
 	titleName: "LymbCrypto",
@@ -37,18 +37,51 @@ export const sideBarIcons = {
 export const buttons = {
 	sideMenu: {
 		mainPanel: {
-			dashboardBtn: createMainButton(sideBarIcons.top.dashboardIcon, "dashboardBtn"),
-			exchangeBtn: createMainButton(sideBarIcons.center.exchangeIcon, "exchangeBtn"),
-			projects: createMainButton(sideBarIcons.center.projectsIcon, "projectsBtn"),
-			scriptsBtn: createMainButton(sideBarIcons.center.scriptsIcon, "scriptsBtn"),
-			tableBtn: createMainButton(sideBarIcons.center.tableIcon, "tableBtn"),
+			dashboardBtn: createMainButton(
+				sideBarIcons.top.dashboardIcon,
+				"dashboardBtn",
+				"dashboardSubMenu"
+			),
+			exchangeBtn: createMainButton(
+				sideBarIcons.center.exchangeIcon,
+				"exchangeBtn",
+				"exchangeSubMenu"
+			),
+			projects: createMainButton(
+				sideBarIcons.center.projectsIcon,
+				"projectsBtn",
+				"projectsSubMenu"
+			),
+			scriptsBtn: createMainButton(
+				sideBarIcons.center.scriptsIcon,
+				"scriptsBtn",
+				"scriptsSubMenu"
+			),
+			tableBtn: createMainButton(sideBarIcons.center.tableIcon, "tableBtn", "tableSubMenu"),
 			logBtn: createMainButton(sideBarIcons.bottom.logIcon, "logBtn"),
 			infoBtn: createMainButton(sideBarIcons.bottom.infoIcon, "infoBtn"),
-			settingsBtn: createMainButton(sideBarIcons.bottom.settingsIcon, "settings"),
+			settingsBtn: createMainButton(
+				sideBarIcons.bottom.settingsIcon,
+				"settings",
+				"settingsSubMenu"
+			),
 		},
 		subMenu: {
-			projects: ["project1", "project2", "project3"],
-			scripts: ["script1", "script2", "script3", "script4"],
+			exchange: {
+				swap: createSubButton("SWAP", "swapBtn"),
+				depOrWidth: createSubButton("DEPWITH", "depWithBtn"),
+				trade: createSubButton("TRADE", "tradeBtn"),
+			},
+			projects: {
+				project1: createSubButton("project1", "project1Btn"),
+				project2: createSubButton("project2", "project2Btn"),
+				project3: createSubButton("project3", "project3Btn"),
+			},
+			scripts: {
+				script1: createSubButton("script1", "script1Btn"),
+				script2: createSubButton("script2", "script2Btn"),
+				script3: createSubButton("scrip3", "script3Btn"),
+			},
 			table: ["open", "add"],
 			log: ["open", "add"],
 			settings: ["open", "add"],

@@ -4,8 +4,12 @@ export function createMainButton(
 	svgPathData,
 	size = sideBarIcons.iconsSize,
 	fill = "#5f6368",
-	className = null
+	buttonClassName = null,
+	subMenuUlClassName = null
 ) {
+	/*Function is create a <a> element with button, wrap this element 
+	in <li> and add an elment <ul> with custom classname for submenu
+	*/
 	const anchor = document.createElement("a");
 	anchor.href = "#";
 
@@ -23,13 +27,34 @@ export function createMainButton(
 
 	svgIcon.appendChild(path);
 	anchor.appendChild(svgIcon);
-	if (className) {
-		anchor.classList.add(className);
+	if (buttonClassName) {
+		anchor.classList.add(buttonClassName);
 	}
+	const li = document.createElement("li");
 
-	return anchor;
+	if (subMenuUlClassName) {
+		const subUl = document.createElement("ul");
+		subUl.classList.add(subMenuUlClassName);
+		li.appendChild(subUl);
+	}
+	li.appendChild(anchor);
+
+	return li;
 }
 
+export function createSubButton(text, className) {
+	const li = document.createElement("li");
+
+	const anchor = document.createElement("a");
+	anchor.href = "#";
+	anchor.text = text;
+	anchor.classList.add(className);
+	li.appendChild(anchor);
+
+	return li;
+}
+
+export function createliWithUl(className = null) {}
 export function createList(className = null) {
 	const ul = document.createElement("ul");
 	ul.classList.add(className);
