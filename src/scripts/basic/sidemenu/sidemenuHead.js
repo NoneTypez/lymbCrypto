@@ -53,7 +53,7 @@ class SideMenuHead {
 
 	createDashboardButton() {
 		// Создаем иконку для кнопки Dashboard с необходимыми классами
-		const dashboardBtn = createIcon(sideBarIcons.sidemenu_head.dashboardIcon, "Dashboard");
+		const dashboardBtn = createIcon(sideBarIcons.sidemenuHead.dashboardIcon);
 		dashboardBtn.classList.add("dashboard_btn");
 		return dashboardBtn;
 	}

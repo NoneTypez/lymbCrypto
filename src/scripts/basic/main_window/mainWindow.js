@@ -1,7 +1,7 @@
 class MainWindow {
 	constructor(body = null) {
 		this.mainBlock = this.createMainBlock();
-		this.div = this.createDivBlock();
+		this.block = this.createDivBlock();
 		this.footer = this.createFooter();
 	}
 

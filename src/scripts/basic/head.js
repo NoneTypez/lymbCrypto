@@ -5,6 +5,7 @@ class Head {
 		this.stylesPath = stylesPath;
 		this.title = titleName;
 		this.HEAD = this.createHeadBlock(); // Создаем и сохраняем <head> элемент
+		this.block = this.init();
 	}
 
 	createHeadBlock() {
@@ -50,6 +51,7 @@ class Head {
 			this.createTitle();
 			this.createStylesLink();
 			document.head.replaceWith(this.HEAD);
+			return this.HEAD;
 		} catch (error) {
 			console.error(`Ошибка инициализации блока HEAD: ${error}`);
 		}
