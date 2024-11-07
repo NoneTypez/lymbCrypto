@@ -1,6 +1,11 @@
 import { sideBarIcons } from "./basic/models.js";
 
-export function createIcon(svgPathData, size = sideBarIcons.iconsSize, fill = "#5f6368") {
+export function createMainButton(
+	svgPathData,
+	size = sideBarIcons.iconsSize,
+	fill = "#5f6368",
+	className = null
+) {
 	const anchor = document.createElement("a");
 	anchor.href = "#";
 
@@ -18,6 +23,15 @@ export function createIcon(svgPathData, size = sideBarIcons.iconsSize, fill = "#
 
 	svgIcon.appendChild(path);
 	anchor.appendChild(svgIcon);
+	if (className) {
+		anchor.classList.add(className);
+	}
 
 	return anchor;
 }
+
+export function createList(className = null) {
+	const ul = document.createElement("ul");
+	ul.classList.add(className);
+}
+export function createButton() {}
