@@ -1,11 +1,6 @@
 import { sideBarIcons } from "./basic/models.js";
 
-export function createMainButton(
-	svgPathData,
-	fill = "#5f6368",
-	buttonClassName = null,
-	subMenuUlClassName = null
-) {
+export function createMainButton(svgPathData, buttonClassName = null, subMenuUlClassName = null) {
 	/*Function is create a <a> element with button, wrap this element 
 	in <li> and add an elment <ul> with custom classname for submenu
 	*/
@@ -19,7 +14,7 @@ export function createMainButton(
 	svgIcon.setAttribute("height", sideBarIcons.iconsSize);
 	svgIcon.setAttribute("width", sideBarIcons.iconsSize);
 	svgIcon.setAttribute("viewBox", "0 -960 960 960");
-	svgIcon.setAttribute("fill", fill); // Можно задать кастомный цвет для SVG
+	svgIcon.setAttribute("fill", "5f6368"); // Можно задать кастомный цвет для SVG
 
 	const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 	path.setAttribute("d", svgPathData);

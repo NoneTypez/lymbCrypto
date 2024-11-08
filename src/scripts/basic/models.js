@@ -39,52 +39,56 @@ export const buttons = {
 		topBlock: {
 			dashboardBtn: createMainButton(
 				sideBarIcons.top.dashboardIcon,
-				"dashboardBtn",
-				"dashboardSubMenu"
+				"dashboard_btn",
+				"dashboard_sub_menu"
 			),
 		},
 		centerBlock: {
 			exchangeBtn: createMainButton(
 				sideBarIcons.center.exchangeIcon,
-				"exchangeBtn",
-				"exchangeSubMenu"
+				"exchange_btn",
+				"exchange_sub_menu"
 			),
 			projects: createMainButton(
 				sideBarIcons.center.projectsIcon,
-				"projectsBtn",
-				"projectsSubMenu"
+				"projects_btn",
+				"projects_sub_menu"
 			),
 			scriptsBtn: createMainButton(
 				sideBarIcons.center.scriptsIcon,
-				"scriptsBtn",
-				"scriptsSubMenu"
+				"scripts_btn",
+				"scripts_sub_menu"
 			),
-			tableBtn: createMainButton(sideBarIcons.center.tableIcon, "tableBtn", "tableSubMenu"),
+			tableBtn: createMainButton(
+				sideBarIcons.center.tableIcon,
+				"table_btn",
+				"table_sub_menu"
+			),
 		},
 		bottomBlock: {
-			logBtn: createMainButton(sideBarIcons.bottom.logIcon, "logBtn"),
-			infoBtn: createMainButton(sideBarIcons.bottom.infoIcon, "infoBtn"),
+			logBtn: createMainButton(sideBarIcons.bottom.logIcon, "log_btn"),
+			infoBtn: createMainButton(sideBarIcons.bottom.infoIcon, "info_btn"),
 			settingsBtn: createMainButton(
 				sideBarIcons.bottom.settingsIcon,
-				"settings",
-				"settingsSubMenu"
+				"settings_btn",
+				"settings_sub_menu"
 			),
 		},
 		subMenu: {
 			exchange: {
-				swap: createSubButton("SWAP", "swapBtn"),
-				depOrWidth: createSubButton("DEPWITH", "depWithBtn"),
-				trade: createSubButton("TRADE", "tradeBtn"),
+				swap: createSubButton("SWAP", "swap_btn"),
+				depOrWidth: createSubButton("DEPWITH", "dep_or_with_btn"),
+				trade: createSubButton("TRADE", "trade_btn"),
 			},
 			projects: {
-				project1: createSubButton("project1", "project1Btn"),
-				project2: createSubButton("project2", "project2Btn"),
-				project3: createSubButton("project3", "project3Btn"),
+				project1: createSubButton("project1", "project1_btn"),
+				project2: createSubButton("project2", "project2_btn"),
+				project3: createSubButton("project3", "project3_btn"),
 			},
 			scripts: {
-				script1: createSubButton("script1", "script1Btn"),
-				script2: createSubButton("script2", "script2Btn"),
-				script3: createSubButton("scrip3", "script3Btn"),
+				script1: createSubButton("script1", "script1_btn"),
+				script2: createSubButton("script2", "script2_btn"),
+				script3: createSubButton("scrip3", "script3_btn"),
 			},
 			// table: ["open", "add"],
 			// log: ["open", "add"],
