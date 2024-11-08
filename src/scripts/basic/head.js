@@ -51,4 +51,4 @@ class Head {
 	}
 }
 
-export const HeadBlock = new Head(mainValues.stylesPath, mainValues.titleName).init();
+export const HeadBlock = new Head(mainValues.stylesPath, mainValues.titleName);

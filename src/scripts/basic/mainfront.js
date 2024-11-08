@@ -14,7 +14,7 @@ function createTitleBar() {
 function init() {
 	{
 		createTitleBar();
-		document.head.replaceWith(HeadBlock);
+		document.head.replaceWith(HeadBlock.init());
 		document.body.appendChild(sidebarInit());
 		document.body.appendChild(mainWindowBlock);
 	}
