@@ -7,6 +7,31 @@ export function createMainButton(svgPathData, buttonClassName = null, subMenuUlC
 	const anchor = document.createElement("a");
 	anchor.href = "#";
 
+	anchor.appendChild(createSvgIcon(svgPathData));
+	if (buttonClassName) {
+		anchor.classList.add(buttonClassName);
+	}
+	const li = document.createElement("li");
+
+	{
+		if (subMenuUlClassName) {
+			const subUl = document.createElement("ul");
+			subUl.classList.add(subMenuUlClassName);
+			li.appendChild(subUl);
+			const subli = document.createElement("li");
+
+			const subanchor = document.createElement("a");
+			subanchor.href = "#";
+			// subanchor.text = text;
+			// subanchor.classList.add(className);
+			// subli.appendChild(anchor);
+		}
+	}
+	li.appendChild(anchor);
+	return li;
+}
+
+export function createSvgIcon(svgPathData) {
 	// Создаем SVG иконку
 	const svgIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svgIcon.setAttribute("class", "main_icons");
@@ -20,20 +45,7 @@ export function createMainButton(svgPathData, buttonClassName = null, subMenuUlC
 	path.setAttribute("d", svgPathData);
 
 	svgIcon.appendChild(path);
-	anchor.appendChild(svgIcon);
-	if (buttonClassName) {
-		anchor.classList.add(buttonClassName);
-	}
-	const li = document.createElement("li");
-
-	if (subMenuUlClassName) {
-		const subUl = document.createElement("ul");
-		subUl.classList.add(subMenuUlClassName);
-		li.appendChild(subUl);
-	}
-	li.appendChild(anchor);
-
-	return li;
+	return svgIcon;
 }
 
 export function createSubButton(text, className) {

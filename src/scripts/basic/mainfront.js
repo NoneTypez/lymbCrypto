@@ -18,5 +18,12 @@ function init() {
 		document.body.appendChild(sidebarInit());
 		document.body.appendChild(mainWindowBlock);
 	}
+	// document.addEventListener("DOMContentLoaded", function () {
+	// 	const dashboardSubMenu = document.querySelector(".dashboard_sub_menu");
+	// 	console.log(dashboardSubMenu); // Должен вернуть элемент или `null` при отсутствии
+	// });
+
+	const dashboardSubMenu = document.querySelector(".dashboard_sub_menu");
+	console.log(dashboardSubMenu);
 }
 init();
