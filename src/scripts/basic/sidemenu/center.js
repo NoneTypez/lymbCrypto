@@ -19,11 +19,19 @@ class SideMenuNav {
 	}
 
 	createSubMenu() {
-		const dashboardSubMenu = document.querySelector(".dashboard_sub_menu");
-		const exchangeSubMenu = document.querySelector(".exchange_sub_menu");
-		const projectsSubMenu = document.querySelector(".projects_sub_menu");
-		const scriptsSubMenu = document.querySelector(".scripts_sub_menu");
-		const tableSubMenu = document.querySelector(".table_sub_menu");
+		const subUl = this.buttons
+			.map((btn) => buttons.sideMenu.centerBlock[btn]?.querySelector("ul"))
+			.filter((ul) => ul !== null); // Исключаем null значения
+
+		for (let [btn, subMenuItems] of Object.entries(buttons.sideMenu.subMenu)) {
+			subUl.forEach((element) => {
+				if (element.className.includes(btn)) {
+					Object.values(subMenuItems).forEach((item) => {
+						element.appendChild(item);
+					});
+				}
+			});
+		}
 	}
 
 	init() {
@@ -33,9 +41,9 @@ class SideMenuNav {
 		const ul = this.createUlWithMainButtons();
 		block.appendChild(ul);
 		this.createSubMenu();
-
 		return block;
 	}
 }
 
 export const centerBlock = new SideMenuNav().init();
+// console.log(centerBlock.querySelector(".exchange_sub_menu"));
